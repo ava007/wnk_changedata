@@ -2,7 +2,7 @@
 
 create table wnk_cdr (
  id           character varying(36) not null primary key,
- created      timestamp with time zone | default ('now'::text)::timestamp with time zone,
+ created      timestamp with time zone default ('now'::text)::timestamp with time zone,
  email        character varying(255),
  sts          character(1) default 'o'::bpchar not null,
  target_table character varying(60) not null,
