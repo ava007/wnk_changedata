@@ -1,0 +1,16 @@
+{
+    "name": "ava007/wnk_changedata",
+    "description": "handle public data changes for cakephp",
+    "type": "cakephp-plugin",
+    "require": {
+        "cakephp/cakephp": ">=3.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "WnkChangedata\\": "src/"
+        }
+    },
+}
