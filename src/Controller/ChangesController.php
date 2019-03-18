@@ -1,6 +1,6 @@
 <?php
 namespace WnkChangedata\Controller;
-use WnkChangeData\Controller\AppController;
+use WnkChangedata\Controller\AppController;
 use Cake\Utility\Text;
 use Cake\ORM\TableRegistry;
 use Cake\I18n\Time;
