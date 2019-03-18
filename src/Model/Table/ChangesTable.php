@@ -6,10 +6,10 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use WnkChangedata\Model\Entity\Changedata;
 /**
- * Translations Model
+ * Changes Model
  *
  */
-class TranslationsTable extends Table
+class ChangesTable extends Table
 {
     /**
      * Initialize method
