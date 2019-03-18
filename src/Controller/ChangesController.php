@@ -1,4 +1,4 @@
-?php
+<?php
 namespace WnkChangeData\Controller;
 use WnkChangeData\Controller\AppController;
 use Cake\Utility\Text;
