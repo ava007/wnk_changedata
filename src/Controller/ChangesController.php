@@ -1,5 +1,5 @@
 <?php
-namespace WnkChangeData\Controller;
+namespace WnkChangedata\Controller;
 use WnkChangeData\Controller\AppController;
 use Cake\Utility\Text;
 use Cake\ORM\TableRegistry;
@@ -9,7 +9,7 @@ use Cake\I18n\Time;
  * Changes Controller
  *
  *
- * @method \WnkChangeData\Model\Entity\Change[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @method \WnkChangedata\Model\Entity\Change[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class ChangesController extends AppController {
 
