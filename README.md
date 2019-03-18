@@ -13,7 +13,7 @@ composer require ava007/wnk_changedata
 ```
 Plugin::load('WnkChangedata', ['routes' => true, 'autoload' => true, 'bootstrap' => false]);
 
-Configure::write('WnkTranslation', [
+Configure::write('WnkChangedata', [
     'tablePrefix' => '',     // optional prefix for database tables
 ]);
 ```
