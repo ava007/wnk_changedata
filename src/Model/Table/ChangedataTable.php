@@ -4,7 +4,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use WnkTranslation\Model\Entity\Translation;
+use WnkChangedata\Model\Entity\Changedata;
 /**
  * Translations Model
  *
@@ -20,7 +20,14 @@ class TranslationsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        $this->table('wnk_cdr');
+     
+        $wnkConf = Configure::read('WnkChangedata');
+        if (isset($wnkConf['tablePrefix']))
+            $table = $wnkConf['tablePrefix'] . 'wnk_cdr';
+        else
+            $table = 'wnk_cdr';
+        
+        $this->table($table);
         $this->displayField('created');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
