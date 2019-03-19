@@ -44,7 +44,7 @@ class ChangesTable extends Table
         $validator
             ->allowEmpty('id', 'created');
         $validator
-            ->requirePresence('targetTable', 'sts','target_op')
+            ->requirePresence('target_table', 'sts','target_op')
             ->notEmpty('msgid');
         $validator
             ->allowEmpty('cdr_remark');
