@@ -4,7 +4,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use WnkChangedata\Model\Entity\Changedata;
+use Cake\Core\Configure;
+use WnkChangedata\Model\Entity\Changes;
 /**
  * Changes Model
  *
