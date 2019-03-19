@@ -261,7 +261,7 @@ class ChangesController extends AppController {
     $this->Changes->save($crec);
 
     $this->Flash->set( __('Translation Saved'));
-    $this->redirect('/wnk-change-data/changes/index');
+    $this->redirect('/wnk-changedata/changes/index');
   }
   
   public function cockpit() {
