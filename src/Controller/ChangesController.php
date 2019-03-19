@@ -19,14 +19,49 @@ class ChangesController extends AppController {
     parent::initialize();
     $this->loadComponent('Paginator');
   }
+  
+  public function add() {
+    $this->log('PluginWCD:CChanges:add getData():' . print_r($this->request->getData(),true));
+
+    $change = $this->Changes->newEntity();
+    if ($this->request->is('post')) {
+      $change = $this->Changes->patchEntity($change, $this->request->getData());
+      $change->id = Text::uuid();
+      $change->sourcecty = env('GEOIP_CITY_COUNTRY_CODE');
+      $change->sourceip = env('REMOTE_ADDR');
+      $change->sts = 'o';
+      $data = $this->request->getData();
+      $olddata = [];
+      foreach ($data as $k => $v) {
+        if (substr($k,0,3) == 'old') {
+           $olddata[substr($k,4)] = $v;
+        }
+      }
+      $change->data_old = json_encode($olddata);
+      $newdata = [];
+      foreach ($data as $k => $v) {
+        if (substr($k,0,3) == 'new') {
+          $newdata[substr($k,4)] = $v;
+        }
+      }
+      $change->data_new = json_encode($newdata);
+      $change->target_table = $data['target_table'];
+      if ($this->Changes->save($change)) {
+        $this->Flash->success(__('The change has been saved.'));
+        return $this->redirect(['action' => 'index']);
+      }
+      $this->Flash->error(__('The change could not be saved. Please, try again.'));
+    }
+    $this->set(compact('change'));
+  }
 
   /**
-   * Add method
+   * Addjson method
    *
    * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
   */
-  public function add() {
-    $this->log('PluginWCD:CChanges:add getData():' . print_r($this->request->getData(),true));
+  public function addjson() {
+    $this->log('PluginWCD:CChanges:addjson getData():' . print_r($this->request->getData(),true));
 
     // https://www.ampproject.org/docs/fundamentals/amp-cors-requests
 
