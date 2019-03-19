@@ -198,7 +198,10 @@ class ChangesController extends AppController {
     if ($crec->target_op == 'd') {
        $tc->delete($j->id);
     } elseif  ($crec->target_op == 'u') {
-      $urec = $table->get($crec->target_id);
+      if (!empty($crec->target_uuid)) 
+        $urec = $table->get($crec->target_uuid);  
+      else
+        $urec = $table->get($crec->target_id);
 
       foreach($j as $attr => $value) {
         if ($attr == 'id') continue;
