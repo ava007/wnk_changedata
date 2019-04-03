@@ -4,6 +4,7 @@ use WnkChangedata\Controller\AppController;
 use Cake\Utility\Text;
 use Cake\ORM\TableRegistry;
 use Cake\I18n\Time;
+use Cake\Utility\Text;  // for uuid
 
 /**
  * Changes Controller
@@ -230,7 +231,13 @@ class ChangesController extends AppController {
       $nrec = $table->newEntity();
      
       foreach($j as $attr => $value) {
-        if ($attr == 'id') continue;
+        if ($attr == 'id') {
+          if ($value == 'newuuid') {
+            $value = Text::uuid();
+          } else {
+            continue;
+          }
+        }
         if ($attr == 'request_oper') continue;
         if ($attr == 'request_remark') continue;
         if (empty($value)) continue;
